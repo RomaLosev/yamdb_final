@@ -6,40 +6,25 @@ API_YAMDB - проект учебного API для сервиса отзыво
 
 АВТОРЫ:
 
-Егор Мухаметвафин - https://github.com/egor20040
-
 Роман Лосев - https://github.com/huli-net
-
-Andrei Vedernikov - https://github.com/Andrei800
-
 
 ЗАПУСК ПРОЕКТА
 
 
-Клонировать репозиторий GitHub
+### Клонировать репозиторий 
 
+### Заполнить файл .env
 
-Cоздать и активировать виртуальное окружение:
+DB_ENGINE= <База данных с которой будем работать>
+DB_NAME= <Имя базы данных>
+POSTGRES_USER= <Логин для подключения к базе данных>
+POSTGRES_PASSWORD= <Пароль для подключения к БД>
+DB_HOST= <Название сервиса>
+DB_PORT= <Порт для подключения к БД>
 
-python -m venv env
+### Запустить проект
 
-
-Установить зависимости из файла requirements.txt:
-
-python -m pip install --upgrade pip
-
-pip install -r requirements.txt
-
-
-Сделать миграции
-
-python manage.py makemigrations
-
-python manage.py migrate
-
-
-Запустить проект
-
-python3 manage.py runserver
-
-Документация API YaMDb по адресу: http://127.0.0.1:8000/redoc/
+1. docker-compose up -d --build #Создание контейнера
+2. docker-compose exec web python manage.py migrate #Миграции
+3. docker-compose exec web python manage.py createsuperuse r  #Создание пользователя с правами суперюзера
+4. docker-compose exec web python manage.py collectstatic --no-input #Загрузка статики
