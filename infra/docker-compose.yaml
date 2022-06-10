@@ -16,7 +16,7 @@ services:
     depends_on:
       - db
     env_file:
-      - /dev/infra_sp2/infra/.env
+      - .env
 
   nginx:
     
